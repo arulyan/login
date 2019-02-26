@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item style="background-color:#EC14BE">
+      <ion-title>Student Portal</ion-title>
+      <ion-icon ios="ios-log-out" md="md-log-out" (click)="home()" item-right></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="card-background-page">
+  <div *ngFor="let item of items">
+    <div *ngIf="item.Id == id">
+      <h2> Welcome {{item.Name}}</h2>
+      <h5>{{today | date}}</h5>
+
+      <ion-card *ngIf="item.Book1 !=''">
+        <img src="https://i.pinimg.com/originals/b1/5d/1b/b15d1b822a2654448b7dfc04962bd096.png" />
+        <div class="card-title">{{item.Book1}}</div>
+        <div class="card-subtitle">Issue Date: {{item.Issue1}}</div>
+        <div class="card-subtitle1"> Due Date: {{item.Due1}}</div>
+      </ion-card>
+      <!--BEFORE
+      <ion-card *ngIf="item.Book1 !=''">
+        <ion-card-header style="color:white">
+          {{item.Book1}}
+        </ion-card-header>
+        <ion-list>
+          Issue Date: {{item.Issue1}}
+          <br>
+          Due Date: {{item.Due1}}
+        </ion-list>
+      </ion-card>-->
+      <ion-card *ngIf="item.Book2 !=''">
+        <img src="http://www.wallpapergeeks.com/wp-content/uploads/2014/10/dark-foggy-road-wallpaper-800x600.jpg" />
+        <div class="card-title">{{item.Book2}}</div>
+        <div class="card-subtitle">Issue Date: {{item.Issue2}}</div>
+        <div class="card-subtitle1"> Due Date: {{item.Due2}}</div>
+      </ion-card>
+
+      <ion-card *ngIf="item.Book3 !=''">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIeIqsyL2TTrEEazZJJqVfy_2uvChXUNCskL708gF9wDgKI0UH" />
+        <div class="card-title">{{item.Book3}}</div>
+        <div class="card-subtitle">Issue Date: {{item.Issue3}}</div>
+        <div class="card-subtitle1"> Due Date: {{item.Due3}}</div>
+      </ion-card>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Logged in as {{id}} </ion-title>
+  </ion-toolbar>
+</ion-footer>

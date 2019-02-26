@@ -1,0 +1,42 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Student Signup</h1>
+  <form [formGroup]="forma">
+    <ion-list>
+  <ion-item>
+    <ion-label floating>
+      Registration No.
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="regs" formControlName="stusign">
+    </ion-input>
+  </ion-item>
+  <ion-item *ngIf="stusign.hasError('required') && stusign.touched">
+      <p style="color:red">Registration No. is required</p>
+    </ion-item>
+    <ion-item *ngIf="( stusign.hasError('minlength') || stusign.hasError('pattern') ) && stusign.touched && !stusign.hasError('required') ">
+      <p style="color:red">Invalid Registration No.</p>
+    </ion-item>
+  <ion-item>
+    <ion-label floating>
+      Password
+    </ion-label>
+    <ion-input type="Password" [(ngModel)]="passs" formControlName="stupass"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="stupass.hasError('required') && stupass.touched">
+      <p style="color:red">Password is required</p>
+    </ion-item>
+</ion-list>
+  <button ion-button (click)="Signup()" [disabled]="!forma.valid">Signup</button>
+</form>
+</ion-content>
